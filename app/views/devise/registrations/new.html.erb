@@ -21,6 +21,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+        <%= f.label "my resale web ID" %><br />
+        <%= f.number_field :my_id %>
+  </div>
+
+  <div class="field">
+        <%= f.label "my resale name" %><br />
+        <%= f.text_field :my_last_name %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
