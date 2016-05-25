@@ -1,11 +1,13 @@
+require_relative 'recent_activity'
+
 class HomeController < ApplicationController
   def index
 
-
+  	# test users
   	# pearson 1525
   	# mordue 221
   	# mardesich-smith 10
-  
+  	
 
 		agent = Mechanize.new
 		page = agent.get('http://www.myresaleweb.com/')
@@ -19,9 +21,11 @@ class HomeController < ApplicationController
 		@recent_activity_link
 		@recent_activity_page
 		@recent_activity_raw
-		@recent_activity_date = []
-		@recent_activity_description = []
-		@recent_activity_price = []
+
+		@recent_activity = []
+		# @recent_activity_date = []
+		# @recent_activity_description = []
+		# @recent_activity_price = []
 
 
 		def parse_date(str)
@@ -43,7 +47,6 @@ class HomeController < ApplicationController
 		def parse_description(str)
 			
 			str = str[17...-6]
-			# binding.pry
 			return str
 		end
 
@@ -53,36 +56,46 @@ class HomeController < ApplicationController
 		end
 
 		def recent_activity(raw)
-			# binding.pry
+			
+			date = []
+			description = []
+			price = []
+
 			des_index = 4
 			price_idex = 5
+
 			raw.each_with_index do |r, index|
 				if index % 3 == 0 && index != 0
 					str = r.to_s
-					date = parse_date(str)
-					@recent_activity_date.push(date)
+					date.push(parse_date(str))
+					# @recent_activity_date.push(date)
 				end
 				
 				if index == des_index
 					str = r.to_s
-					description = parse_description(str)
-					@recent_activity_description.push(description)
+					description.push(parse_description(str))
+					# @recent_activity_description.push(description)
 					des_index += 3
 				end
 
 				if index == price_idex
 					str = r.to_s
-					price = parse_price(str)
-					@recent_activity_price.push(price)
+					price.push(parse_price(str))
+					# @recent_activity_price.push(price)
 					price_idex +=3
 					# binding.pry
 				end
 
+				
 				# binding.pry
 			end
-			# @recent_activity.pop(1)
+			
+			date.each_with_index do |d, index|
+				
+				@recent_activity.push(Recent_activity.new(date[index], description[index], price[index])) 
 
-			binding.pry
+			end
+			 binding.pry
 
 		end
 
