@@ -1,15 +1,32 @@
  <%= render "nav_bar" %>
 <div class="row">
-  <div class="col s06 offset-s5">
-		<h1>Items</h1>
-		<p>Find me in app/views/home/index.html.erb</p>
-		<% if @user %>
-			<h1>Email: <%= @user.email %></h1>
+  <div class="col s08 offset-s4">
+  	<div>
+			<h3 class="center-align">Account</h3>
+		</div>
+		<% if current_user %>
+			<h6> Hello <%= current_user.my_last_name %></h6>
 		<% end %>
-		<%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
 	</div>
-	<div class="col s06 offset-s5">
-	
+	<div class="col s8 offset-s4">
+		<table>
+        <thead>
+          <tr>
+              <th data-field="id">Date</th>
+              <th data-field="name">Transaction</th>
+              <th data-field="price">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+        	<% @recent_activity.each do |item| %>
+        		<tr>
+	            <td> <%=item.date %></td>
+	            <td><%=item.description %></td>
+	            <td><%=item.price %></td>
+          	</tr>
+					<% end %>
+        </tbody>
+      </table>
 	</div>
 </div>
 
