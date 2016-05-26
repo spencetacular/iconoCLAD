@@ -1,4 +1,5 @@
 require_relative 'recent_activity'
+require_relative 'view_items'
 
 class HomeController < ApplicationController
   def index
@@ -51,7 +52,7 @@ class HomeController < ApplicationController
 					price_idex +=3
 				end
 			end
-			
+			# binding.pry
 			date.each_with_index do |d, index|
 
 				recent = Recent_activity.new(date[index], description[index], price[index])
@@ -60,13 +61,48 @@ class HomeController < ApplicationController
 			end
 		end
 
+		
+
+		
+
 		def view_items(raw)
+			
+			item_num = []
+			description = []
+			date_in = []
+			date_out = []
+			price = []
+			status = []
 
-			item_num = [], description = [], date_in = [], date_out = []
-			price = [], status = [], count = []
+			ticker = 0
+			item_ticker = 0
+			num_columns =6
 
+			raw.drop(6)
 
-			 binding.pry
+			raw.each_with_index do |r, index|
+
+				str = r.to_s
+
+				if str =~ /\d{5}/
+					item_num.push(raw[index].to_s)
+					description.push(raw[index +1].to_s)
+					date_in.push(raw[index +2].to_s)
+					date_out.push(raw[index +3].to_s)
+					price.push(raw[index +4].to_s)
+					status.push(raw[index +5].to_s)
+					# binding.pry
+				end
+			end
+
+			item_num.each_with_index do |d, index|
+				# item = View_items.new("1","1","1","1","1","1")
+
+				item = View_items.new(item_num[index], description[index], date_in[index], date_out[index], price[index], status[index])
+				item.parse_strings
+				@view_items.push(item) 
+			end
+			# binding.pry
 		end
 
 		def populate_forms
@@ -96,10 +132,6 @@ class HomeController < ApplicationController
 				
 				# binding.pry
 				view_items(@view_items_raw)
-
-
-
-
 			end
 		end
 

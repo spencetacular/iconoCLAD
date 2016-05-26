@@ -8,7 +8,7 @@
 			<h6> Hello <%= current_user.my_last_name %></h6>
 		<% end %>
 	</div>
-	<div class="col s8 offset-s4">
+	<div class="col s8 offset-s2">
 		<table>
         <thead>
           <tr>
@@ -28,5 +28,31 @@
         </tbody>
       </table>
 	</div>
+  <div class="col s8 offset-s2">
+    <table>
+        <thead>
+          <tr>
+              <th data-field="item number">Item Number</th>
+              <th data-field="description">Description</th>
+              <th data-field="date_in">Date In</th>
+              <th data-field="date_in">Date Out</th>
+              <th data-field="date_in">Price</th>
+              <th data-field="date_in">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @view_items.each do |item| %>
+            <tr>
+              <td><%=item.item_number %></td>
+              <td><%=item.description %></td>
+              <td><%=item.date_in %></td>
+              <td><%=item.date_out %></td>
+              <td><%=item.price %></td>
+              <td><%=item.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
 </div>
 
