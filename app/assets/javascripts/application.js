@@ -15,3 +15,31 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  $('#say_hello').click(function(){
+    alert('Hello button clicked!');
+  });
+
+  $('#recent_activity_list').click(function(){
+  		alert('recent button clicked!');
+     	if($('#items_list').is(':hidden')){
+     	} else {
+     		$('#items_list').addClass('hide');
+     	}
+
+	});
+
+	$('#items_list').click(function(){
+     	if($('#recent_activity_list').is(':hidden')){
+     	} else {
+     		$('#recent_activity_list').addClass('hide');
+     	}
+
+	});
+
+ 
+    
+
+});
