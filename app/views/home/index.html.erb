@@ -4,15 +4,17 @@
   	<div>
 			<h3 class="center-align">Account</h3>
 		</div>
-     <a href="#!" id="recent_activity_list" class="btn center-align" onclick="Materialize.showStaggeredList('#staggered-test') ">Click Me</a>
+     <a href="#!" id="recent_activity_button" class="btn center-align" >Recent</a>
+      <a href="#!" id="view_items_button" class="btn center-align" >Items</a>
 		<% if current_user %>
 			<h6> Hello <%= current_user.my_last_name %></h6>
 		<% end %>
 	</div>
 </div>
-<div class="row">
+<div class="row hide" id="recent_activity_list">
   <div class="col s08 offset-s4">
-    <ul id="staggered-test">
+    <ul id="staggered-recent">
+    <h3> Recent Activity</h3>
     <% @recent_activity.each do |item| %>
       <li class="item">
         <P><%= item.date %> <%= item.description %> <%= item.price %></P>
@@ -21,54 +23,20 @@
     </ul>
   </div>
 </div>
-<div>
-  <div class="staggered-list">
-  	<table>
-        <thead>
-          <tr>
-              <th data-field="id">Date</th>
-              <th data-field="name">Transaction</th>
-              <th data-field="price">Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-        	<% @recent_activity.each do |item| %>
-        		<tr>
-              <td> <%= item.date %></td>
-              <td> <%= item.description %></td>
-              <td> <%= item.price %></td>
-          	</tr>
-  				<% end %>
-        </tbody>
-      </table>
+<div class="row hide" id="view_items_list">
+  <div class="col s08 offset-s4">
+    <h3> Items </h3>
+    <ul id="staggered-items">
+    <% @view_items.each do |item| %>
+      <li class="item">
+        <P><%= item.item_number %> <%= item.description %> <%= item.date_in %> <%= item.date_out %> <%= item.price %> <%= item.status %><</P>
+      </li>
+    <% end %>
+    </ul>
   </div>
 </div>
-<div class="col s8 offset-s2">
-  <table>
-      <thead>
-        <tr>
-            <th data-field="item number">Item Number</th>
-            <th data-field="description">Description</th>
-            <th data-field="date_in">Date In</th>
-            <th data-field="date_in">Date Out</th>
-            <th data-field="date_in">Price</th>
-            <th data-field="date_in">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @view_items.each do |item| %>
-          <tr>
-            <td><%=item.item_number %></td>
-            <td><%=item.description %></td>
-            <td><%=item.date_in %></td>
-            <td><%=item.date_out %></td>
-            <td><%=item.price %></td>
-            <td><%=item.status %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-</div>
+
+
 
 
 

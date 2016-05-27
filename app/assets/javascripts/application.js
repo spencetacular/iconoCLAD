@@ -22,20 +22,36 @@ $(document).ready(function(){
     alert('Hello button clicked!');
   });
 
-  $('#recent_activity_list').click(function(){
-  		alert('recent button clicked!');
-     	if($('#items_list').is(':hidden')){
-     	} else {
-     		$('#items_list').addClass('hide');
+  $('#recent_activity_button').click(function(){
+  		// alert('recent button clicked!');
+
+  		if($('#recent_activity_list').is(':hidden')){
+  			$('#recent_activity_list').removeClass('hide')
      	}
+
+     	if($('#view_items_list').is(':hidden')){
+
+     	} else {
+     		$('#view_items_list').addClass('hide');
+     	}
+
+     	Materialize.showStaggeredList('#staggered-recent')
 
 	});
 
-	$('#items_list').click(function(){
+	$('#view_items_button').click(function(){
+
+			if($('#view_items_list').is(':hidden')){
+  			$('#view_items_list').removeClass('hide')
+     	}
+ 			
+
      	if($('#recent_activity_list').is(':hidden')){
      	} else {
      		$('#recent_activity_list').addClass('hide');
      	}
+
+     	Materialize.showStaggeredList('#staggered-items')
 
 	});
 
