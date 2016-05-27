@@ -1,19 +1,21 @@
-<nav class="top-nav">
+
 	<div class="container">
-		<ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
-			<li class="logo">
-				<a href="home.html" class="waves-effect waves-teal">Logo</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="side-nav  hide-on-med-and-down" style="transform: translateX(0%);">
+			<li class="logo"><a href="home.html" class="waves-effect waves-teal">Logo</a></li>
+			<li class="bold"><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
+			<li class="bold" id="recent_activity_button"><a href="#!" class="waves-effect waves-teal">Recent Activity</a>
 			</li>
-			<li class="bold">
-				<%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+			<li class="bold" id="view_items_button"><a href="#!" class="waves-effect waves-teal">View Items</a></li>
+		</ul>
+		 <ul class="side-nav" id="mobile-demo">
+			<li class="logo"><a href="home.html" class="waves-effect waves-teal">Logo</a></li>
+			<li class="bold"><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
+			<li class="bold" id="recent_activity_button"><a href="#!" class="waves-effect waves-teal">Recent Activity</a>
 			</li>
-			<li class="bold" id="recent_activity_button">
-				<a href="#!" class="waves-effect waves-teal">Recent Activity</a>
-			</li>
-			<li class="bold" id="view_items_button">
-				<a href="#!" class="waves-effect waves-teal">View Items</a>
-			</li>
-			
+			<li class="bold" id="view_items_button"><a href="#!" class="waves-effect waves-teal">View Items</a></li>
 		</ul>
 	</div>
-</nav>
+
+
+
