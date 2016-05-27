@@ -56,6 +56,6 @@ $(document).ready(function(){
 	});
 
  
-    
+    $('#recent_activity_button').trigger('click');
 
 });

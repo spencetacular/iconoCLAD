@@ -4,8 +4,6 @@
   	<div>
 			<h3 class="center-align">Account</h3>
 		</div>
-     <a href="#!" id="recent_activity_button" class="btn center-align" >Recent</a>
-      <a href="#!" id="view_items_button" class="btn center-align" >Items</a>
 		<% if current_user %>
 			<h6> Hello <%= current_user.my_last_name %></h6>
 		<% end %>
@@ -17,7 +15,7 @@
     <h3> Recent Activity</h3>
     <% @recent_activity.each do |item| %>
       <li class="item">
-        <P><%= item.date %> <%= item.description %> <%= item.price %></P>
+        <P><%= item.combined %></P>
       </li>
     <% end %>
     </ul>
@@ -29,7 +27,7 @@
     <ul id="staggered-items">
     <% @view_items.each do |item| %>
       <li class="item">
-        <P><%= item.item_number %> <%= item.description %> <%= item.date_in %> <%= item.date_out %> <%= item.price %> <%= item.status %><</P>
+        <P><%= item.combined %> <</P>
       </li>
     <% end %>
     </ul>

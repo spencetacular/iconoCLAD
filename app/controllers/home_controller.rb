@@ -57,13 +57,11 @@ class HomeController < ApplicationController
 
 				recent = Recent_activity.new(date[index], description[index], price[index])
 				recent.parse_strings
+				recent.create_row
 				@recent_activity.push(recent) 
 			end
+			# binding.pry
 		end
-
-		
-
-		
 
 		def view_items(raw)
 			
@@ -96,10 +94,11 @@ class HomeController < ApplicationController
 			end
 
 			item_num.each_with_index do |d, index|
-				# item = View_items.new("1","1","1","1","1","1")
 
-				item = View_items.new(item_num[index], description[index], date_in[index], date_out[index], price[index], status[index])
+				item = View_items.new(item_num[index], description[index], 
+					date_in[index], date_out[index], price[index], status[index])
 				item.parse_strings
+				item.create_row
 				@view_items.push(item) 
 			end
 			# binding.pry
