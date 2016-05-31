@@ -1,4 +1,7 @@
- @import 'materialize';
+@import "materialize/components/color";
+$primary-color: #ef41b2 !default;
+$secondary-color: #82817f !default;
+@import 'materialize';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,7 +17,10 @@
  *= require_tree .
  *= require_self
  */
-
+.logo{
+	height: 100%;
+  
+}
  .hide{
  	display: none;
  }

@@ -22,7 +22,7 @@ $(document).ready(function(){
     alert('Hello button clicked!');
   });
 
-  $('#recent_activity_button').click(function(){
+  $('.recent_activity_button').click(function(){
   		// alert('recent button clicked!');
 
   		if($('#recent_activity_list').is(':hidden')){
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	});
 
-	$('#view_items_button').click(function(){
+	$('.view_items_button').click(function(){
 
 			if($('#view_items_list').is(':hidden')){
   			$('#view_items_list').removeClass('hide')
@@ -56,7 +56,7 @@ $(document).ready(function(){
 	});
 
  
-    $('#recent_activity_button').trigger('click');
+    $('.recent_activity_button').trigger('click');
 
      $(".button-collapse").sideNav();
 
