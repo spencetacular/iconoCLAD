@@ -10,19 +10,17 @@
 	</div>
 </div>
 <div class="row hide" id="recent_activity_list">
-  <div class="">
     <ul id="staggered-recent">
-      <h3> Recent Activity</h3>
         <div class="row">
           <li class="item">
-            <div class="col s01 offset-m3 z-depth-1 item-grid">
-              <P class="table-header">Date</P>
+            <div class="col s1 offset-m3 offset-s01 z-depth-1 item-grid">
+              <b>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </div>
-            <div class="col s7 z-depth-1 item-grid">
-              <P class="table-header left-align">Description</P>
+            <div class="col s07 z-depth-1 item-grid">
+              <b class="left-align">Description</b>
             </div>
             <div class="col s01 z-depth-1 item-grid">
-              <P class="table-header">Price</P>
+              <b>Price</b>
             </div>
           </li>
         </div>
@@ -49,18 +47,40 @@
 <div class="row hide" id="view_items_list">
   <div class="">
     <ul id="staggered-items">
+      <div class="row">
+          <li class="item">
+            <div class="col s01 offset-m3 z-depth-1 item-grid">
+              <b>Item Number</b>
+            </div>
+            <div class="col s5 z-depth-1 item-grid">
+              <b class="left-align">Description</b>
+            </div>
+            <div class="col s01 z-depth-1 item-grid">
+              <b>Date In &nbsp;&nbsp;&nbsp;</b>
+            </div>
+            <div class="col s01 z-depth-1 item-grid">
+              <b>Date Out &nbsp;&nbsp;&nbsp;</b>
+            </div>
+            <div class="col s01 z-depth-1 item-grid">
+              <b>Price &nbsp;&nbsp;&nbsp;</b>
+            </div>
+            <div class="col s01 z-depth-1 item-grid">
+              <b>Status</b>
+            </div>
+          </li>
+        </div>
       <h3> Items</h3>
         <% @view_items.each do |item| %>
           <div class="row">
             <li class="item">
               <div class="col s01 offset-m3 z-depth-1 item-grid">
-                <P><%= item.item_number %></P>
+                <P> <%= item.item_number %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P>
               </div>
-              <div class="col s07 z-depth-1 item-grid">
+              <div class="col s5 z-depth-1 item-grid">
                 <P class="left-align"><%= item.description %></P>
               </div>
               <div class="col s01 z-depth-1 item-grid">
-                <P><%= item.date_in %></P>
+                <P><%= item.date_in %> </P>
               </div>
               <div class="col s01 z-depth-1 item-grid">
                 <P><%= item.date_out %></P>
