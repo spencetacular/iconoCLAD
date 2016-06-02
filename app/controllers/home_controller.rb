@@ -8,6 +8,8 @@ class HomeController < ApplicationController
   	# pearson 1525
   	# mordue 221
   	# mardesich-smith 10
+
+  	# binding.pry
   	
 		agent = Mechanize.new
 		page = agent.get('http://www.myresaleweb.com/')

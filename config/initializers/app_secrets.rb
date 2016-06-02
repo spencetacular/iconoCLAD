@@ -5,4 +5,5 @@ if Rails.env.development? || Rails.env.test?
   rescue
     raise 'facebook.yml is not found'
   end
+  
 end

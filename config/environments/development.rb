@@ -17,23 +17,10 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = true
 
   #Added per active admin install instructions
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+ 
 
 
-  #These settings are for the sending out email for active admin and consequently the   devise mailer
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = 
-  {
 
-    :address            => 'smtp.gmail.com',
-    :port               => 587,
-    :domain             => 'gmail.com', #you can also use google.com
-    :authentication     => :plain,
-    :user_name          => 'XXXXX@gmail.com',
-    :password           => 'XXXXXXX'
-  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -55,6 +42,56 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: “smtp.gmail.com”,
+  port: 587,
+  domain: 'gmail.com',
+  authentication: “plain”,
+  enable_starttls_auto: true,
+  user_name: ENV["EMAIL"],
+  password: ENV["EMAIL_PASSWORD"]
+}
+
+
+
+
+
+  # config.action_mailer.delivery_method = :smtp
+  # # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  #  :address              => "smtp.gmail.com",
+  #  :port                 => 587,
+  #  :user_name            => ENV['EMAIL'],
+  #  :password             => ENV['EMAIL_PASSWORD'],
+  #  :authentication       => "plain",
+  # :enable_starttls_auto => true
+  # }
+
+
+  #These settings are for the sending out email for active admin and consequently the   devise mailer
+  
+  # ActionMailer::Base.perform_deliveries = true
+  # ActionMailer::Base.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = 
+  # {
+
+  #   :address            => 'smtp.gmail.com',
+  #   :port               => 587,
+  #   # :domain             => 'gmail.com', #you can also use google.com
+  #   :authentication     => :plain,
+  #   :user_name          => ENV["EMAIL"],
+  #   :password           => ENV["EMAIL_PASSWORD"],
+  #   # :openssl_verify_mode  => 'none',
+  #   # :enable_starttls_auto => true
+  # }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
 end
