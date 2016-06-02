@@ -26,6 +26,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'materialize-sass'
 gem 'mechanize'
+gem 'puma'
 
 
 # Use ActiveModel has_secure_password
