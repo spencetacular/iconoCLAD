@@ -1,6 +1,6 @@
 @import "materialize/components/color";
 $primary-color: #ef41b2 !default;
-$secondary-color: #82817f !default;
+$secondary-color: #ef41b2 !default;
 @import 'materialize';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -17,10 +17,21 @@ $secondary-color: #82817f !default;
  *= require_tree .
  *= require_self
  */
+
+ input.body {
+  width:95%;
+}
+
 .logo{
 	height: 100%;
   
 }
+
+.logo-devise{
+    height: 30%;
+    width: 30%;
+}
+
  .hide{
  	display: none;
  }

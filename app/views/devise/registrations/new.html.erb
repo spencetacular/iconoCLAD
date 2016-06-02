@@ -1,38 +1,56 @@
-<h2>Sign up</h2>
+<%= render "devise/shared/logo" %>
+<div class="row">
+  <div class="col s01 offset-s5">
+    <h2>Sign up</h2>
+  </div>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-        <%= f.label "my resale web ID" %><br />
-        <%= f.number_field :my_id %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.label "my resale web ID" %><br />
+      <%= f.number_field :my_id %>
+    </div>
   </div>
 
-  <div class="field">
-        <%= f.label "my resale name" %><br />
-        <%= f.text_field :my_last_name %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.label "my resale name" %><br />
+      <%= f.text_field :my_last_name %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.submit "Sign up", class: "btn" %>
+    </div>
   </div>
 <% end %>
 
