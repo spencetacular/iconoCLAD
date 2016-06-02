@@ -119,22 +119,30 @@ class HomeController < ApplicationController
 			if @store_form['state'] != 'UT' || 	@store_form['storeid'] != 'BK1652' || @store_form['consignorid'] != current_user.my_id || @store_form['consignorlastname'] != current_user.my_last_name
 				populate_forms
 			else
+
+				# binding.pry
 				@page = @store_form.submit
 				@recent_activity_link = @page.link_with(text: 'Recent Activity')
-				@recent_activity_page = @recent_activity_link.click
-				@recent_activity_raw = @recent_activity_page.search("td.main")
-				recent_activity(@recent_activity_raw)
+				if @recent_activity_link
 
-				@view_items_link = @page.link_with(text: 'View Items')
-				@view_items_page = @view_items_link.click
-				@view_items_raw = @view_items_page.search("td.main")
+					@recent_activity_page = @recent_activity_link.click
+					@recent_activity_raw = @recent_activity_page.search("td.main")
+					recent_activity(@recent_activity_raw)
+
+					@view_items_link = @page.link_with(text: 'View Items')
+					@view_items_page = @view_items_link.click
+					@view_items_raw = @view_items_page.search("td.main")
+					
+					view_items(@view_items_raw)
+
+				else
 				
-				# binding.pry
-				view_items(@view_items_raw)
+				end
+				
 			end
 		end
 
 	populate_forms
-
+	# binding.pry
   end
 end
