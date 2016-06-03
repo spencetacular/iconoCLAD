@@ -18,6 +18,16 @@ $secondary-color: #ef41b2 !default;
  *= require_self
  */
 
+.alert {
+    background-color: #ef41b2;
+    color: white;
+    width: 80%;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
  input.body {
   width:95%;
 }

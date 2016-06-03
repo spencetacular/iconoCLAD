@@ -12,52 +12,58 @@
 //
 //= require jquery
 //= require materialize-sprockets
-//= require jquery_ujs
 //= require turbolinks
+//= require jquery_ujs
+
 //= require_tree .
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  $('#say_hello').click(function(){
-    alert('Hello button clicked!');
-  });
+// 	console.log("application.js called");
 
-  $('.recent_activity_button').click(function(){
-  		// alert('recent button clicked!');
+//   $('.alert').show(function() {
+//      setTimeout((function() {
+//         $('.alert').slideToggle();
+//     }), 100);
+//   });
 
-  		if($('#recent_activity_list').is(':hidden')){
-  			$('#recent_activity_list').removeClass('hide')
-     	}
 
-     	if($('#view_items_list').is(':hidden')){
+//   $('.recent_activity_button').click(function(){
+//   		// alert('recent button clicked!');
 
-     	} else {
-     		$('#view_items_list').addClass('hide');
-     	}
+//   		if($('#recent_activity_list').is(':hidden')){
+//   			$('#recent_activity_list').removeClass('hide')
+//      	}
 
-     	Materialize.showStaggeredList('#staggered-recent')
+//      	if($('#view_items_list').is(':hidden')){
 
-	});
+//      	} else {
+//      		$('#view_items_list').addClass('hide');
+//      	}
 
-	$('.view_items_button').click(function(){
+//      	Materialize.showStaggeredList('#staggered-recent')
 
-			if($('#view_items_list').is(':hidden')){
-  			$('#view_items_list').removeClass('hide')
-     	}
+// 	});
+
+// 	$('.view_items_button').click(function(){
+
+// 			if($('#view_items_list').is(':hidden')){
+//   			$('#view_items_list').removeClass('hide')
+//      	}
  			
 
-     	if($('#recent_activity_list').is(':hidden')){
-     	} else {
-     		$('#recent_activity_list').addClass('hide');
-     	}
+//      	if($('#recent_activity_list').is(':hidden')){
+//      	} else {
+//      		$('#recent_activity_list').addClass('hide');
+//      	}
 
-     	Materialize.showStaggeredList('#staggered-items')
+//      	Materialize.showStaggeredList('#staggered-items')
 
-	});
+// 	});
 
  
-    $('.recent_activity_button').trigger('click');
+//     $('.recent_activity_button').trigger('click');
 
-     $(".button-collapse").sideNav();
+//      $(".button-collapse").sideNav();
 
-});
+// });
