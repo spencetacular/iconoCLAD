@@ -17,6 +17,10 @@ def find_price(str)
 
 end
 
+def find_owners_message(str)
+	str = str[6..-8]
+end
+
 def find_num_spaces(str, max_length)
 
 	tab = 5
@@ -27,9 +31,7 @@ def find_num_spaces(str, max_length)
 		num_spaces -= 1
 	end
 
-	
-
 	return str
 end
-find_num_spaces("TEST", 10)
+
 

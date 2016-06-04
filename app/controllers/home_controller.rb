@@ -28,6 +28,9 @@ class HomeController < ApplicationController
 		@recent_activity = []
 		@view_items = []
 
+		@owners_message
+		@balance
+
 		def recent_activity(raw)
 			
 			date = []
@@ -118,12 +121,24 @@ class HomeController < ApplicationController
 
 		def checkforms 
 			
+			
+
 			if @store_form['state'] != 'UT' || 	@store_form['storeid'] != 'BK1652' || @store_form['consignorid'] != current_user.my_id || @store_form['consignorlastname'] != current_user.my_last_name
 				populate_forms
 			else
 
 				# binding.pry
 				@page = @store_form.submit
+				front_page_raw = @page.search("span")
+				@balance = front_page_raw[2].to_s
+				@owners_message = front_page_raw[3].to_s
+				@balance = find_price(@balance)
+				@owners_message = find_owners_message(@owners_message)
+
+				 # binding.pry
+
+
+
 				@recent_activity_link = @page.link_with(text: 'Recent Activity')
 				if @recent_activity_link
 

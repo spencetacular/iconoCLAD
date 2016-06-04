@@ -5,7 +5,11 @@
 			<h3>Account</h3>
 		</div>
 		<% if current_user %>
-			<h6> Hello Mr. or Ms. <%= current_user.my_last_name.upcase %> (we are very formal here)</h6>
+			<h4> Hello Mr. or Ms. <%= current_user.my_last_name.upcase %> (we are very formal here)</h4>
+      <h3>Balance: <%= @balance %> </h3>
+      <div class="col s10">
+        <b> <%= @owners_message %> </b>
+      </div>
 		<% end %>
 	</div>
 </div>
