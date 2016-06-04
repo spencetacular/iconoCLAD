@@ -9,13 +9,9 @@ class HomeController < ApplicationController
   	# mordue 221
   	# mardesich-smith 10
 
-  	# binding.pry
-  	
 		agent = Mechanize.new
 		page = agent.get('http://www.myresaleweb.com/')
 
-		# store_form['consignorid'] = '131'
-		# store_form['consignorlastname'] = 'awesome'
 		@store_form = page.forms[1]
 		@page
 		@recent_activity_link
@@ -57,7 +53,7 @@ class HomeController < ApplicationController
 					price_idex +=3
 				end
 			end
-			# binding.pry
+		
 			date.each_with_index do |d, index|
 
 				recent = Recent_activity.new(date[index], description[index], price[index])
@@ -65,7 +61,7 @@ class HomeController < ApplicationController
 				recent.create_row
 				@recent_activity.push(recent) 
 			end
-			# binding.pry
+	
 		end
 
 		def view_items(raw)
@@ -94,7 +90,6 @@ class HomeController < ApplicationController
 					date_out.push(raw[index +3].to_s)
 					price.push(raw[index +4].to_s)
 					status.push(raw[index +5].to_s)
-					# binding.pry
 				end
 			end
 
@@ -106,7 +101,7 @@ class HomeController < ApplicationController
 				item.create_row
 				@view_items.push(item) 
 			end
-			# binding.pry
+		
 		end
 
 		def populate_forms
@@ -127,39 +122,30 @@ class HomeController < ApplicationController
 				populate_forms
 			else
 
-				# binding.pry
+		
 				@page = @store_form.submit
 				front_page_raw = @page.search("span")
 				@balance = front_page_raw[2].to_s
 				@owners_message = front_page_raw[3].to_s
 				@balance = find_price(@balance)
 				@owners_message = find_owners_message(@owners_message)
-
-				 # binding.pry
-
-
-
 				@recent_activity_link = @page.link_with(text: 'Recent Activity')
+				
 				if @recent_activity_link
 
 					@recent_activity_page = @recent_activity_link.click
 					@recent_activity_raw = @recent_activity_page.search("td.main")
 					recent_activity(@recent_activity_raw)
-
 					@view_items_link = @page.link_with(text: 'View Items')
 					@view_items_page = @view_items_link.click
 					@view_items_raw = @view_items_page.search("td.main")
-					
 					view_items(@view_items_raw)
 
-				else
-				
-				end
-				
+				end			
 			end
 		end
 
 	populate_forms
-	# binding.pry
+	
   end
 end
